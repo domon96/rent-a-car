@@ -12,6 +12,7 @@ import java.awt.*;
 @Getter
 @Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Car {
 
     @Id
