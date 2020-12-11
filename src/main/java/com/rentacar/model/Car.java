@@ -3,7 +3,6 @@ package com.rentacar.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.awt.*;
 
 @Entity
 @Table
@@ -32,7 +31,7 @@ public class Car {
     private int productionYear;
 
     @Column
-    private Color color;
+    private PaintColor color;
 
     @Column
     private int mileage;
