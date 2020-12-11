@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class LoadClientDb {
 
     @Bean
-    CommandLineRunner initDataBase (ClientRepository clientRepository) {
+    CommandLineRunner clientInitDataBase (ClientRepository clientRepository) {
 
         return args -> {
             clientRepository.save(new Client("Piotr","Nowak","piotr.nowak@gmail.com"));

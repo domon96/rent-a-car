@@ -14,7 +14,7 @@ import java.awt.*;
 public class LoadCarDb {
 
     @Bean
-    CommandLineRunner initDataBase (CarRepository carRepository) {
+    CommandLineRunner carInitDataBase (CarRepository carRepository) {
 
         return args -> {
             carRepository.save(Car.builder()
