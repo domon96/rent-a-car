@@ -1,5 +1,6 @@
 package com.rentacar.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,4 +26,9 @@ public class Client {
     @Column
     private String email;
 
+    public Client(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 }
