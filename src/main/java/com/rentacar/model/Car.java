@@ -9,12 +9,10 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@ToString
-@EqualsAndHashCode
-@Getter
+@Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Car {
 
     @Id

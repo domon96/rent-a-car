@@ -1,13 +1,14 @@
 package com.rentacar.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Client {
 
@@ -24,10 +25,4 @@ public class Client {
 
     @Column
     private String email;
-
-    public Client(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
 }
