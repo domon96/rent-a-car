@@ -10,11 +10,20 @@ import org.springframework.context.annotation.Configuration;
 public class LoadClientDb {
 
     @Bean
-    CommandLineRunner clientInitDataBase (ClientRepository clientRepository) {
+    CommandLineRunner clientInitDataBase(ClientRepository clientRepository) {
 
         return args -> {
-            clientRepository.save(new Client("Piotr","Nowak","piotr.nowak@gmail.com"));
-            clientRepository.save(new Client("Ola","Kowalska","ola.kowalska@gmail.com"));
+            clientRepository.save(Client.builder()
+                    .firstName("Piotr")
+                    .lastName("Nowak")
+                    .email("piotr.nowak@gmail.com")
+                    .build());
+
+            clientRepository.save(Client.builder()
+                    .firstName("Ola")
+                    .lastName("Kowal")
+                    .email("ola.kowal@gmail.com")
+                    .build());
         };
     }
 }
