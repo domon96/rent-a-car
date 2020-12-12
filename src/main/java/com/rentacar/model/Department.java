@@ -22,8 +22,7 @@ public class Department {
     @Column
     private City city;
 
-    @Column
-    @OneToMany
+    @OneToMany(mappedBy = "department")
     private List<Worker> workers = new ArrayList<>();
 
     @Column

@@ -26,7 +26,7 @@ public class Worker {
     @Column
     private JobTitle jobTitle;
 
-    @Column
     @ManyToOne
+    @JoinColumn(name = "department_id")
     private Department department;
 }
