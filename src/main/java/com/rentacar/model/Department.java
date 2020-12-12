@@ -29,7 +29,10 @@ public class Department {
     @OneToMany(mappedBy = "department")
     private List<Worker> workers = new ArrayList<>();
 
-    @Column
-    @OneToMany
+    @OneToMany(mappedBy = "department")
     private List<Car> cars = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "rental_id")
+    private Rental rental;
 }

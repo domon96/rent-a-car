@@ -45,4 +45,8 @@ public class Car {
 
     @Column
     private double oneDayPrice;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 }

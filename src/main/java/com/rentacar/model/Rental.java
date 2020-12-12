@@ -34,8 +34,7 @@ public class Rental {
     @Column
     private String owner;
 
-    @Column
-    @OneToMany
+    @OneToMany(mappedBy = "rental")
     private final List<Department> departments = new ArrayList<>();
 
     // add avatar?
