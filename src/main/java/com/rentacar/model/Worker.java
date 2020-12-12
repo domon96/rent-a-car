@@ -1,5 +1,6 @@
 package com.rentacar.model;
 
+import com.rentacar.model.enums.JobTitle;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,6 +27,6 @@ public class Worker {
     private JobTitle jobTitle;
 
     @Column
-    @OneToOne
+    @ManyToOne
     private Department department;
 }

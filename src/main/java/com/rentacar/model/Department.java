@@ -1,5 +1,6 @@
 package com.rentacar.model;
 
+import com.rentacar.model.enums.City;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

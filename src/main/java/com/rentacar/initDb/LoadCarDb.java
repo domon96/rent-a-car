@@ -1,9 +1,9 @@
 package com.rentacar.initDb;
 
 import com.rentacar.model.Car;
-import com.rentacar.model.CarBodyType;
-import com.rentacar.model.CarStatus;
-import com.rentacar.model.PaintColor;
+import com.rentacar.model.enums.CarBodyType;
+import com.rentacar.model.enums.CarStatus;
+import com.rentacar.model.enums.PaintColor;
 import com.rentacar.repository.CarRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

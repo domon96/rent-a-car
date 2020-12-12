@@ -1,4 +1,4 @@
-package com.rentacar.model;
+package com.rentacar.model.enums;
 
 public enum CarStatus {
     IN_USE,
