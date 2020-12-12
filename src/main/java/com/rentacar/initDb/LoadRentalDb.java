@@ -1,8 +1,6 @@
 package com.rentacar.initDb;
 
-import com.rentacar.model.Client;
 import com.rentacar.model.Rental;
-import com.rentacar.repository.ClientRepository;
 import com.rentacar.repository.RentalRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class LoadRentalDb {
 
     @Bean
-    CommandLineRunner rentalInitDataBase (RentalRepository rentalRepository) {
+    CommandLineRunner rentalInitDataBase(RentalRepository rentalRepository) {
 
         return args -> {
             rentalRepository.save(Rental.builder()

@@ -3,7 +3,10 @@ package com.rentacar.model;
 import com.rentacar.model.enums.CarBodyType;
 import com.rentacar.model.enums.CarStatus;
 import com.rentacar.model.enums.PaintColor;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 

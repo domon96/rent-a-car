@@ -1,6 +1,5 @@
 package com.rentacar.controller;
 
-import com.rentacar.model.Client;
 import com.rentacar.model.Rental;
 import com.rentacar.repository.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
