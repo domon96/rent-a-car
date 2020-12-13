@@ -1,7 +1,11 @@
 package com.rentacar.model;
 
 import com.rentacar.model.enums.JobTitle;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
@@ -9,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table
 @Data
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Worker extends User {
