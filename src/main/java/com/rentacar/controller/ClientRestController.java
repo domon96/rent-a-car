@@ -16,17 +16,18 @@ public class ClientRestController {
 
     @PostMapping(path = "/add")
     public String addNewClient(
-            @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) String lastName,
-            @RequestParam(required = false) String email,
-            @RequestParam(required = false) String login,
-            @RequestParam(required = false) String password) {
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam String email,
+            @RequestParam String login,
+            @RequestParam String password) {
         Client newClient = new Client();
         newClient.setFirstName(firstName);
         newClient.setLastName(lastName);
         newClient.setEmail(email);
         newClient.setLogin(login);
         newClient.setPassword(password);
+        System.out.println(newClient.getRole());
 
         clientRepository.save(newClient);
         return "Saved";
