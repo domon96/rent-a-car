@@ -1,9 +1,9 @@
 package com.rentacar.model.enums;
 
 public enum City {
-    WARSZAWA,
-    KRAKÓW,
-    ŁÓDŹ,
-    WROCŁAW,
-    POZNAŃ
+    WARSAW,
+    CRACOW,
+    GDANSK,
+    WROCLAW,
+    POZNAN
 }
