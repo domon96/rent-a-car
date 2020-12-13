@@ -1,25 +1,18 @@
 package com.rentacar.model;
 
 import com.rentacar.model.enums.JobTitle;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Worker {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private Long id;
+public class Worker extends User {
 
     @Column
     private String firstName;
