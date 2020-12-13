@@ -27,7 +27,6 @@ public class ClientRestController {
         newClient.setEmail(email);
         newClient.setLogin(login);
         newClient.setPassword(password);
-        System.out.println(newClient.getRole());
 
         clientRepository.save(newClient);
         return "Saved";
