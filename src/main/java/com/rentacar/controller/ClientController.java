@@ -19,11 +19,15 @@ public class ClientController {
     @ResponseBody
     public String addNewClient(@RequestParam String firstName,
                                @RequestParam String lastName,
-                               @RequestParam String email) {
+                               @RequestParam String email,
+                               @RequestParam String login,
+                               @RequestParam String password) {
         Client newClient = new Client();
         newClient.setFirstName(firstName);
         newClient.setLastName(lastName);
         newClient.setEmail(email);
+        newClient.setLogin(login);
+        newClient.setPassword(password);
 
         clientRepository.save(newClient);
         return "Saved";
