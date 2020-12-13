@@ -24,6 +24,7 @@ public class Department {
     private Long id;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private City city;
 
     @OneToMany(mappedBy = "department")

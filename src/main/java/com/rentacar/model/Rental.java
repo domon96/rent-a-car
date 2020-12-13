@@ -22,7 +22,7 @@ public class Rental {
     @Column
     private Long id;
 
-    @Column
+    @Column(name = "company_name")
     private String companyName;
 
     @Column

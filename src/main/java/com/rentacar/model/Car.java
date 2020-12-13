@@ -29,21 +29,24 @@ public class Car {
     private String model;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private CarBodyType type;
 
-    @Column
+    @Column(name = "production_year")
     private int productionYear;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private PaintColor color;
 
     @Column
     private int mileage;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private CarStatus status;
 
-    @Column
+    @Column(name = "one_day_price")
     private double oneDayPrice;
 
     @ManyToOne

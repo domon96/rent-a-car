@@ -18,13 +18,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Worker extends User {
 
-    @Column
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column
+    @Column(name = "job_title")
+    @Enumerated(EnumType.STRING)
     private JobTitle jobTitle;
 
     @ManyToOne

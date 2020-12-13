@@ -19,10 +19,10 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class Client extends User {
 
-    @Column
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column
+    @Column(name = "last_name")
     private String lastName;
 
     @Column
