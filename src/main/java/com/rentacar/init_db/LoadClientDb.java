@@ -1,6 +1,7 @@
 package com.rentacar.init_db;
 
 import com.rentacar.model.Client;
+import com.rentacar.model.enums.RoleType;
 import com.rentacar.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,6 +21,7 @@ public class LoadClientDb implements CommandLineRunner {
                 .email("piotr.nowak@gmail.com")
                 .login("piotnow")
                 .password("piotnow")
+                .role(RoleType.USER)
                 .build());
 
         clientRepository.save(Client.builder()
@@ -28,6 +30,7 @@ public class LoadClientDb implements CommandLineRunner {
                 .email("ola.kowal@gmail.com")
                 .login("olakow")
                 .password("olakow")
+                .role(RoleType.USER)
                 .build());
     }
 }

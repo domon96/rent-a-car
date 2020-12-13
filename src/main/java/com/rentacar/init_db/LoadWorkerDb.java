@@ -2,6 +2,7 @@ package com.rentacar.init_db;
 
 import com.rentacar.model.Worker;
 import com.rentacar.model.enums.JobTitle;
+import com.rentacar.model.enums.RoleType;
 import com.rentacar.repository.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,6 +22,7 @@ public class LoadWorkerDb implements CommandLineRunner {
                 .jobTitle(JobTitle.WORKER)
                 .login("damryd")
                 .password("damryd")
+                .role(RoleType.USER)
                 .build());
 
         workerRepository.save(Worker.builder()
@@ -29,6 +31,7 @@ public class LoadWorkerDb implements CommandLineRunner {
                 .jobTitle(JobTitle.MANAGER)
                 .login("maknow")
                 .password("maknow")
+                .role(RoleType.USER)
                 .build());
     }
 }
