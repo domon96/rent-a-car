@@ -17,12 +17,16 @@ public class LoadClientDb {
                     .firstName("Piotr")
                     .lastName("Nowak")
                     .email("piotr.nowak@gmail.com")
+                    .login("piotnow")
+                    .password("piotnow")
                     .build());
 
             clientRepository.save(Client.builder()
                     .firstName("Ola")
                     .lastName("Kowal")
                     .email("ola.kowal@gmail.com")
+                    .login("olakow")
+                    .password("olakow")
                     .build());
         };
     }
