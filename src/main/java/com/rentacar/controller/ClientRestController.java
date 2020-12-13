@@ -3,25 +3,24 @@ package com.rentacar.controller;
 import com.rentacar.model.Client;
 import com.rentacar.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping(path = "/clients")
-public class ClientController {
+public class ClientRestController {
 
     @Autowired
     private ClientRepository clientRepository;
 
     @PostMapping(path = "/add")
-    @ResponseBody
-    public String addNewClient(@RequestParam String firstName,
-                               @RequestParam String lastName,
-                               @RequestParam String email,
-                               @RequestParam String login,
-                               @RequestParam String password) {
+    public String addNewClient(
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName,
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) String login,
+            @RequestParam(required = false) String password) {
         Client newClient = new Client();
         newClient.setFirstName(firstName);
         newClient.setLastName(lastName);
@@ -34,13 +33,11 @@ public class ClientController {
     }
 
     @GetMapping(path = "/all")
-    @ResponseBody
     public Iterable<Client> getAllClients() {
         return clientRepository.findAll();
     }
 
     @GetMapping(path = "/{id}")
-    @ResponseBody
     public Optional<Client> getClient(@PathVariable Long id) {
         return clientRepository.findById(id);
     }
