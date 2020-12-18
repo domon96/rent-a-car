@@ -39,17 +39,17 @@ public class LoadUserDb implements CommandLineRunner {
 
     private void createRoles() {
         UserRole userRole1 = new UserRole();
-        userRole1.setRole(RoleType.USER);
+        userRole1.setRole(RoleType.ROLE_USER);
         userRoleRepository.save(userRole1);
 
         UserRole userRole2 = new UserRole();
-        userRole2.setRole(RoleType.ADMIN);
+        userRole2.setRole(RoleType.ROLE_ADMIN);
         userRoleRepository.save(userRole2);
     }
 
     private void createClients() {
-        UserRole userRole = userRoleRepository.getByRole(RoleType.USER);
-        UserRole adminRole = userRoleRepository.getByRole(RoleType.ADMIN);
+        UserRole userRole = userRoleRepository.getByRole(RoleType.ROLE_USER);
+        UserRole adminRole = userRoleRepository.getByRole(RoleType.ROLE_ADMIN);
 
         clientRepository.save(Client.builder()
                 .firstName("Piotr")
@@ -71,8 +71,8 @@ public class LoadUserDb implements CommandLineRunner {
     }
 
     private void createWorkers() {
-        UserRole userRole = userRoleRepository.getByRole(RoleType.USER);
-        UserRole adminRole = userRoleRepository.getByRole(RoleType.ADMIN);
+        UserRole userRole = userRoleRepository.getByRole(RoleType.ROLE_USER);
+        UserRole adminRole = userRoleRepository.getByRole(RoleType.ROLE_ADMIN);
 
         workerRepository.save(Worker.builder()
                 .firstName("Damian")

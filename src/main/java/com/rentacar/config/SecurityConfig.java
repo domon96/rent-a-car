@@ -19,31 +19,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
+                .dataSource(dataSource)
                 .usersByUsernameQuery("SELECT u.login, u.password, 1 FROM user u WHERE u.login=?")
                 .authoritiesByUsernameQuery("SELECT u.login, r.role, 1 " +
                         "FROM user u " +
                         "INNER JOIN user_role ur ON ur.user_id = u.id " +
                         "INNER JOIN role r ON r.role_id = ur.role_id " +
-                        "WHERE u.login=?")
-                .dataSource(dataSource);
+                        "WHERE u.login=?");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        // NOT WORKING - roles
-
         http.authorizeRequests()
                 .antMatchers("/clients/**").hasRole("USER")
-                .antMatchers("/rentals/**").hasAnyRole("USER", "ADMIN")
+                //.antMatchers("/rentals/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
-                .and()
-                .formLogin().permitAll()
-                .and()
-                .logout().permitAll();
+                .and().formLogin().permitAll()
+                .and().logout().permitAll();
 
-        http.csrf().disable().headers().frameOptions().disable();
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
     @Bean
