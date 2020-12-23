@@ -27,6 +27,9 @@
                 <li class="nav-item active" sec:authorize="!isAuthenticated()">
                     <a type="button" class="btn btn-outline-success" href="/login">Login</a>
                 </li>
+                <li class="nav-item active" sec:authorize="!isAuthenticated()">
+                    <a type="button" class="btn btn-outline-success" href="/sign-up">Sign up</a>
+                </li>
                 <li class="nav-item active" sec:authorize="isAuthenticated()">
                     <a type="button" class="btn btn-outline-danger" href="/logout">Logout</a>
                 </li>
