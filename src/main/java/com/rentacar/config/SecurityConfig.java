@@ -44,10 +44,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.antMatchers("/rentals/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin().permitAll()
-                .and().logout().permitAll();
+                .and()
+                .formLogin()
+                .defaultSuccessUrl("/", true)
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .permitAll();
 
         http.csrf().disable();
+
         http.headers().frameOptions().disable();
     }
 
