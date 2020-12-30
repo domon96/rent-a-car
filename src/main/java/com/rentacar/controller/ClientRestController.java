@@ -1,7 +1,7 @@
 package com.rentacar.controller;
 
-import com.rentacar.model.Client;
-import com.rentacar.repository.ClientRepository;
+import com.rentacar.model.User;
+import com.rentacar.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class ClientRestController {
 
     @Autowired
-    private ClientRepository clientRepository;
+    private UserRepository userRepository;
 
     @PostMapping(path = "/add")
     public String addNewClient(
@@ -21,24 +21,24 @@ public class ClientRestController {
             @RequestParam String email,
             @RequestParam String login,
             @RequestParam String password) {
-        Client newClient = new Client();
+        User newClient = new User();
         newClient.setFirstName(firstName);
         newClient.setLastName(lastName);
         newClient.setEmail(email);
         newClient.setLogin(login);
         newClient.setPassword(password);
 
-        clientRepository.save(newClient);
+        userRepository.save(newClient);
         return "Saved";
     }
 
     @GetMapping(path = "/all")
-    public Iterable<Client> getAllClients() {
-        return clientRepository.findAll();
+    public Iterable<User> getAllClients() {
+        return userRepository.findAll();
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<Client> getClient(@PathVariable Long id) {
-        return clientRepository.findById(id);
+    public Optional<User> getClient(@PathVariable Long id) {
+        return userRepository.findById(id);
     }
 }

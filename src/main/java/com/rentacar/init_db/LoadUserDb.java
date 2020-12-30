@@ -1,13 +1,10 @@
 package com.rentacar.init_db;
 
-import com.rentacar.model.Client;
+import com.rentacar.model.User;
 import com.rentacar.model.UserRole;
-import com.rentacar.model.Worker;
-import com.rentacar.model.enums.JobTitle;
 import com.rentacar.model.enums.RoleType;
-import com.rentacar.repository.ClientRepository;
-import com.rentacar.repository.UserRoleRepository;
-import com.rentacar.repository.WorkerRepository;
+import com.rentacar.repository.UserRepository;
+import com.rentacar.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -19,13 +16,10 @@ import java.util.Arrays;
 public class LoadUserDb implements CommandLineRunner {
 
     @Autowired
-    private UserRoleRepository userRoleRepository;
+    private RoleRepository roleRepository;
 
     @Autowired
-    private ClientRepository clientRepository;
-
-    @Autowired
-    private WorkerRepository workerRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -33,25 +27,24 @@ public class LoadUserDb implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         createRoles();
-        createClients();
-        createWorkers();
+        createUsers();
     }
 
     private void createRoles() {
         UserRole userRole1 = new UserRole();
         userRole1.setRole(RoleType.ROLE_USER);
-        userRoleRepository.save(userRole1);
+        roleRepository.save(userRole1);
 
         UserRole userRole2 = new UserRole();
         userRole2.setRole(RoleType.ROLE_ADMIN);
-        userRoleRepository.save(userRole2);
+        roleRepository.save(userRole2);
     }
 
-    private void createClients() {
-        UserRole userRole = userRoleRepository.getByRole(RoleType.ROLE_USER);
-        UserRole adminRole = userRoleRepository.getByRole(RoleType.ROLE_ADMIN);
+    private void createUsers() {
+        UserRole userRole = roleRepository.getByRole(RoleType.ROLE_USER);
+        UserRole adminRole = roleRepository.getByRole(RoleType.ROLE_ADMIN);
 
-        clientRepository.save(Client.builder()
+        userRepository.save(User.builder()
                 .firstName("Piotr")
                 .lastName("Nowak")
                 .email("piotr.nowak@gmail.com")
@@ -60,36 +53,13 @@ public class LoadUserDb implements CommandLineRunner {
                 .roles(Arrays.asList(userRole))
                 .build());
 
-        clientRepository.save(Client.builder()
+        userRepository.save(User.builder()
                 .firstName("Ola")
                 .lastName("Kowal")
                 .email("ola.kowal@gmail.com")
                 .login("olakow")
                 .password(passwordEncoder.encode("olakow"))
                 .roles(Arrays.asList(adminRole))
-                .build());
-    }
-
-    private void createWorkers() {
-        UserRole userRole = userRoleRepository.getByRole(RoleType.ROLE_USER);
-        UserRole adminRole = userRoleRepository.getByRole(RoleType.ROLE_ADMIN);
-
-        workerRepository.save(Worker.builder()
-                .firstName("Damian")
-                .lastName("Rydz")
-                .jobTitle(JobTitle.WORKER)
-                .login("damryd")
-                .password(passwordEncoder.encode("damryd"))
-                .roles(Arrays.asList(userRole))
-                .build());
-
-        workerRepository.save(Worker.builder()
-                .firstName("Maks")
-                .lastName("Nowy")
-                .jobTitle(JobTitle.MANAGER)
-                .login("maknow")
-                .password(passwordEncoder.encode("maknow"))
-                .roles(Arrays.asList(userRole))
                 .build());
     }
 }
