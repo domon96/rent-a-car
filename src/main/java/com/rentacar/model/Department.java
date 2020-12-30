@@ -28,9 +28,6 @@ public class Department {
     private City city;
 
     @OneToMany(mappedBy = "department")
-    private List<Worker> workers = new ArrayList<>();
-
-    @OneToMany(mappedBy = "department")
     private List<Car> cars = new ArrayList<>();
 
     @ManyToOne
