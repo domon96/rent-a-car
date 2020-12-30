@@ -29,6 +29,6 @@ public class HomeController {
     @PostMapping(path = "/sign-up")
     public String saveUser(@ModelAttribute("user") UserDto user) {
         userService.save(user);
-        return "home";
+        return "redirect:/login";
     }
 }
