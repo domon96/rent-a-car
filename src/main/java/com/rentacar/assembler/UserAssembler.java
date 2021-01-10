@@ -2,18 +2,15 @@ package com.rentacar.assembler;
 
 import com.rentacar.dto.UserDto;
 import com.rentacar.model.User;
-import com.rentacar.model.enums.RoleType;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-
 @Component
+@RequiredArgsConstructor
 public class UserAssembler {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public User toEntity(UserDto userDto) {
         User entity = new User();
