@@ -44,22 +44,19 @@ public class LoadUserDb implements CommandLineRunner {
         UserRole userRole = roleRepository.getByRole(RoleType.ROLE_USER);
         UserRole adminRole = roleRepository.getByRole(RoleType.ROLE_ADMIN);
 
-        userRepository.save(User.builder()
-                .firstName("Piotr")
-                .lastName("Nowak")
-                .email("piotr.nowak@gmail.com")
-                .login("pionow")
-                .password(passwordEncoder.encode("pionow"))
-                .roles(Arrays.asList(userRole))
-                .build());
+        saveUser(userRole, "Piotr", "Nowak", "piotr.nowak@gmail.com", "pionow", "pionow");
 
-        userRepository.save(User.builder()
-                .firstName("Ola")
-                .lastName("Kowal")
-                .email("ola.kowal@gmail.com")
-                .login("olakow")
-                .password(passwordEncoder.encode("olakow"))
-                .roles(Arrays.asList(adminRole))
+        saveUser(adminRole, "Ola", "Kowal", "ola.kowal@gmail.com", "olakow", "olakow");
+    }
+
+    private User saveUser(UserRole userRole, String firstName, String lastName, String email, String login, String password) {
+        return userRepository.save(User.builder()
+                .firstName(firstName)
+                .lastName(lastName)
+                .email(email)
+                .login(login)
+                .password(passwordEncoder.encode(password))
+                .roles(Arrays.asList(userRole))
                 .build());
     }
 }

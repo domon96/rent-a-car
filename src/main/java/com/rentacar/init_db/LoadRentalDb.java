@@ -14,25 +14,19 @@ public class LoadRentalDb implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        rentalRepository.save(Rental.builder()
-                .companyName("Firma A")
-                .domain("a@firma.pl")
-                .phone(123456789L)
-                .owner("Dariusz A")
-                .build());
+        saveRental("Firma A", "a@firma.pl", 123456789L, "Dariusz A");
 
-        rentalRepository.save(Rental.builder()
-                .companyName("Firma B")
-                .domain("b@firma.pl")
-                .phone(234567891L)
-                .owner("Michał B")
-                .build());
+        saveRental("Firma B", "b@firma.pl", 234567891L, "Michał B");
 
+        saveRental("Firma C", "c@firma.pl", 345678912L, "Ania C");
+    }
+
+    private void saveRental(String companyName, String domain, long phone, String owner) {
         rentalRepository.save(Rental.builder()
-                .companyName("Firma C")
-                .domain("c@firma.pl")
-                .phone(345678912L)
-                .owner("Ania C")
+                .companyName(companyName)
+                .domain(domain)
+                .phone(phone)
+                .owner(owner)
                 .build());
     }
 }

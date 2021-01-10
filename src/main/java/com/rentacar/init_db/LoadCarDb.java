@@ -17,81 +17,31 @@ public class LoadCarDb implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        carRepository.save(Car.builder()
-                .brand("Toyota")
-                .model("Avensis")
-                .type(CarBodyType.HATCHBACK)
-                .productionYear(2005)
-                .color(PaintColor.BLACK)
-                .mileage(135_000)
-                .status(CarStatus.AVAILABLE)
-                .oneDayPrice(100.0)
-                .build());
+        saveCar("Toyota", "Avensis", CarBodyType.HATCHBACK, 2005, PaintColor.BLACK, 135_000, 100.0);
 
-        carRepository.save(Car.builder()
-                .brand("Toyota")
-                .model("Avensis")
-                .type(CarBodyType.SEDAN)
-                .productionYear(2010)
-                .color(PaintColor.BLUE)
-                .mileage(90_000)
-                .status(CarStatus.AVAILABLE)
-                .oneDayPrice(130.0)
-                .build());
+        saveCar("Toyota", "Avensis", CarBodyType.SEDAN, 2010, PaintColor.BLUE, 90_000, 130.0);
 
-        carRepository.save(Car.builder()
-                .brand("Toyota")
-                .model("Corolla")
-                .type(CarBodyType.HATCHBACK)
-                .productionYear(2008)
-                .color(PaintColor.BLACK)
-                .mileage(110_000)
-                .status(CarStatus.AVAILABLE)
-                .oneDayPrice(110.0)
-                .build());
+        saveCar("Toyota", "Corolla", CarBodyType.HATCHBACK, 2008, PaintColor.BLACK, 110_000, 110.0);
 
-        carRepository.save(Car.builder()
-                .brand("Seat")
-                .model("Leon")
-                .type(CarBodyType.HATCHBACK)
-                .productionYear(2015)
-                .color(PaintColor.BLACK)
-                .mileage(67_000)
-                .status(CarStatus.AVAILABLE)
-                .oneDayPrice(150.0)
-                .build());
+        saveCar("Seat", "Leon", CarBodyType.HATCHBACK, 2015, PaintColor.BLACK, 67_000, 150.0);
 
-        carRepository.save(Car.builder()
-                .brand("Seat")
-                .model("Leon")
-                .type(CarBodyType.HATCHBACK)
-                .productionYear(2015)
-                .color(PaintColor.BLUE)
-                .mileage(80_000)
-                .status(CarStatus.AVAILABLE)
-                .oneDayPrice(140.0)
-                .build());
+        saveCar("Seat", "Leon", CarBodyType.HATCHBACK, 2015, PaintColor.BLUE, 80_000, 140.0);
 
-        carRepository.save(Car.builder()
-                .brand("Seat")
-                .model("Ibiza")
-                .type(CarBodyType.HATCHBACK)
-                .productionYear(2000)
-                .color(PaintColor.BLACK)
-                .mileage(200_000)
-                .status(CarStatus.AVAILABLE)
-                .oneDayPrice(70.0)
-                .build());
+        saveCar("Seat", "Ibiza", CarBodyType.HATCHBACK, 2000, PaintColor.BLACK, 200_000, 70.0);
 
+        saveCar("Seat", "Ibiza", CarBodyType.HATCHBACK, 2003, PaintColor.BLACK, 170_000, 80.0);
+    }
+
+    private void saveCar(String brand, String model, CarBodyType type, int productionYear, PaintColor color, int mileage, double oneDayPrice) {
         carRepository.save(Car.builder()
-                .brand("Seat")
-                .model("Ibiza")
-                .type(CarBodyType.HATCHBACK)
-                .productionYear(2003)
-                .color(PaintColor.BLACK)
-                .mileage(170_000)
+                .brand(brand)
+                .model(model)
+                .type(type)
+                .productionYear(productionYear)
+                .color(color)
+                .mileage(mileage)
                 .status(CarStatus.AVAILABLE)
-                .oneDayPrice(80.0)
+                .oneDayPrice(oneDayPrice)
                 .build());
     }
 }
